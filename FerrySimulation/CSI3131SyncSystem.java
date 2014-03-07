@@ -13,7 +13,7 @@ public class CSI3131SyncSystem
 	private ArrayList<CSI3131Semaphore> semList = new ArrayList<CSI3131Semaphore>(0);  // used to manage an array of semaphores
 	public FileWriter syslog;   // The system log
 
-        // The Constructor
+    // The Constructor
 	public CSI3131SyncSystem()
 	{
 		// Setup the log file
@@ -94,7 +94,7 @@ public class CSI3131SyncSystem
 	}
 	
 	// A wait on the semaphore identified by semid
-	public void waitsem(int semid)
+	public void waitsem(int semid) throws InterruptedException
 	{
 		// Wait semaphore in list
 		semList.get(semid).waitsem();
@@ -116,6 +116,15 @@ public class CSI3131SyncSystem
 			}			
 		} catch (IOException e) {
             System.out.println("logSemMsg could not write to system log file"); 
+			e.printStackTrace();
+		}
+	}
+
+	public void closeLog()
+	{
+		try {
+			syslog.close();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

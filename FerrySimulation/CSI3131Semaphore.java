@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CSI3131Semaphore 
 {
-	private int semval = 0;  // default value used with standard constructor
+	private int semval = 0;
 	CSI3131SyncSystem syncSys;
 	String name;
 	// List of the names of Threads in the wait set of the semaphore
@@ -35,7 +35,7 @@ public class CSI3131Semaphore
            logmsg = "waitsem: Sempahore " + name + ", on thread " + Thread.currentThread().getName() + 
 			        ", with semval = " + semval + ", needs to wait on " + name + " queue";
 		   // Add to the thread names in queue
-		   threadNamesInWaitQueue.add(Thread.currentThread().getName()); // ArrayList tracks names of Threads in wait set
+		   threadNamesInWaitQueue.add(Thread.currentThread().getName());
 		   // Log all
 		   syncSys.logSemMsg(logmsg,threadNamesInWaitQueue);  
 		   // Wait
