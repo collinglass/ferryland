@@ -42,8 +42,13 @@ public class Ferry extends Thread
 	   // numCrossings crossings in our day
 	   for(i=0 ; i < numCrossings ; i++)
        {
-	    try { syncSys.waitsem(semDepart); } // Wait for the signal for departure
-	    catch (InterruptedException ex) { break; }
+	    try { 
+	    	syncSys.waitsem(semDepart); 
+	    } 
+	    // Wait for the signal for departure
+	    catch (InterruptedException ex) { 
+	    	break; 
+	    }
 		// The crossing
 		System.out.println("Departure from port " + port + " with a load of " + load + " vehicles");
 		System.out.println("Crossing " + i + " with a load of " + load + " vehicles");
